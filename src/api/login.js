@@ -78,3 +78,4 @@ export function allocRole(data) {
     data: data
   })
 }
+

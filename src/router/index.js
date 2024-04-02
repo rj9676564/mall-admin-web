@@ -305,6 +305,61 @@ export const asyncRouterMap = [
   {
     path:'/ums',
     component: Layout,
+    redirect: '/ums/sub/manager',
+    name: 'gzh',
+    meta: {title: '公众号管理', icon: 'ums'},
+    children: [
+      {
+        path: 'sub/manager',
+        name: 'gzh-manager',
+        component: () => import('@/views/subs/manager/manager'),
+        meta: {title: '公众号', icon: 'ums-admin'}
+      },
+    ]
+  },
+  {
+    path:'/news',
+    component: Layout,
+    redirect: '/news/draft',
+    name: 'news_manager',
+    meta: {title: '文章管理', icon: 'ums'},
+    children: [
+      {
+        path: 'draft',
+        name: 'news_draft',
+        component: () => import('@/views/subs/news/draft/index'),
+        meta: {title: '文章存稿', icon: 'ums-admin'}
+      },{
+        path: 'optimize',
+        name: 'news_optimize',
+        component: () => import('@/views/subs/news/optimize/index'),
+        meta: {title: '待润色', icon: 'ums-admin'}
+      },
+    ]
+  },
+  {
+    path:'/setting',
+    component: Layout,
+    redirect: '/setting/person',
+    name: 'system_setting',
+    meta: {title: '系统管理', icon: 'ums'},
+    children: [
+      {
+        path: 'person',
+        name: 'person_setting',
+        component: () => import('@/views/subs/setting/person/index'),
+        meta: {title: '个人设置', icon: 'ums-admin'}
+      },{
+        path: 'user',
+        name: 'user_manager',
+        component: () => import('@/views/subs/setting/user/index'),
+        meta: {title: '用户管理', icon: 'ums-admin'}
+      },
+    ]
+  },
+  {
+    path:'/ums',
+    component: Layout,
     redirect: '/ums/admin',
     name: 'ums',
     meta: {title: '权限', icon: 'ums'},
